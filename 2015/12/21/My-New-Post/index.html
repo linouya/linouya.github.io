@@ -51,16 +51,25 @@
 
 
 
-<meta name="description">
+<meta name="description" content="HDU-5534-Partial Tree【2015长春赛区】【完全背包】标签（空格分隔）： 完全背包
+
+Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others)
+Problem DescriptionIn mathematics, and more specifically in g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My New Post">
+<meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2015/12/21/My-New-Post/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-12-21T07:50:21.046Z">
+<meta property="og:description" content="HDU-5534-Partial Tree【2015长春赛区】【完全背包】标签（空格分隔）： 完全背包
+
+Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others)
+Problem DescriptionIn mathematics, and more specifically in g">
+<meta property="og:updated_time" content="2015-12-21T08:32:36.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My New Post">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="HDU-5534-Partial Tree【2015长春赛区】【完全背包】标签（空格分隔）： 完全背包
+
+Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others)
+Problem DescriptionIn mathematics, and more specifically in g">
 
 
 
@@ -72,7 +81,7 @@
   };
 </script>
 
-  <title> My New Post | Hexo </title>
+  <title>  | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -192,7 +201,7 @@
             
             
               
-                My New Post
+                
               
             
           </h1>
@@ -201,7 +210,7 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-12-21T15:50:21+08:00" content="2015-12-21">
+            <time itemprop="dateCreated" datetime="2015-12-21T16:36:39+08:00" content="2015-12-21">
               2015-12-21
             </time>
           </span>
@@ -225,7 +234,25 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h1 id="HDU-5534-Partial_Tree_u30102015_u957F_u6625_u8D5B_u533A_u3011_u3010_u5B8C_u5168_u80CC_u5305_u3011"><a href="#HDU-5534-Partial_Tree_u30102015_u957F_u6625_u8D5B_u533A_u3011_u3010_u5B8C_u5168_u80CC_u5305_u3011" class="headerlink" title="HDU-5534-Partial Tree【2015长春赛区】【完全背包】"></a>HDU-5534-Partial Tree【2015长春赛区】【完全背包】</h1><p>标签（空格分隔）： 完全背包</p>
+<hr>
+<pre><code>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others)
+</code></pre><p><strong>Problem Description</strong><br>In mathematics, and more specifically in graph theory, a tree is an undirected graph in which any two nodes are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.</p>
+<p>You find a partial tree on the way home. This tree has n nodes but lacks of n−1 edges. You want to complete this tree by adding n−1 edges. There must be exactly one path between any two nodes after adding. As you know, there are nn−2 ways to complete this tree, and you want to make the completed tree as cool as possible. The coolness of a tree is the sum of coolness of its nodes. The coolness of a node is f(d), where f is a predefined function and d is the degree of this node. What’s the maximum coolness of the completed tree?</p>
+<p><strong>Input</strong><br>The first line contains an integer T indicating the total number of test cases.<br>Each test case starts with an integer n in one line,<br>then one line with n−1 integers f(1),f(2),…,f(n−1).</p>
+<p>1≤T≤2015<br>2≤n≤2015<br>0≤f(i)≤10000<br>There are at most 10 test cases with n&gt;100.</p>
+<p><strong>Output</strong><br>For each test case, please output the maximum coolness of the completed tree in one line.</p>
+<p><strong>Sample Input</strong><br>2<br>3<br>2 1<br>4<br>5 1 4</p>
+<p><strong>Sample Output</strong><br>5<br>19</p>
+<p>题目链接：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5534" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5534</a></p>
+<p>题目大意：让你构造一个有n(2≤n≤2015)个节点的树。然后定义这棵树的coolness为∑f(d)，其中d是每个节点的度数，函数f在输入中给出。</p>
+<p>题目思路：一颗含有n个节点的树，有n−1条边，度数之和为2n−2。所以我们可以转化成一个完全背包问题：</p>
+<pre><code>一开始假设大家的度数都为1，然后慢慢地增大，让大家的度数和增大到2n−2。
+dp[i]表示i个度的最优值
+那么有状态转移方程：dp[i + j - 1] = max(dp[i + j - 1],dp[j] + num[i] - num[1]);
+最终所求的答案就是dp[n-2]
+</code></pre><p>以下是代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> num[<span class="number">2050</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2050</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> INF <span class="number">0x3f3f3f3f</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) dp[i] = -INF;  <span class="comment">//初始化</span></span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; i + j - <span class="number">1</span> &lt;= n - <span class="number">2</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i + j - <span class="number">1</span>] = max(dp[i + j - <span class="number">1</span>],dp[j] + num[i] - num[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="built_in">memset</span>(num,<span class="number">0</span>,<span class="keyword">sizeof</span>(num));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;num[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        solve();</span><br><span class="line">        <span class="keyword">int</span> ans = dp[n - <span class="number">2</span>] + num[<span class="number">1</span>] * n;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</span>
       
     </div>
 
@@ -356,7 +383,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HDU-5534-Partial_Tree_u30102015_u957F_u6625_u8D5B_u533A_u3011_u3010_u5B8C_u5168_u80CC_u5305_u3011"><span class="nav-number">1.</span> <span class="nav-text">HDU-5534-Partial Tree【2015长春赛区】【完全背包】</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
