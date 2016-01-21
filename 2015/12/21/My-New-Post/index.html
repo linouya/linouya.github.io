@@ -63,7 +63,7 @@ Problem DescriptionIn mathematics, and more specifically in g">
 
 Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others)
 Problem DescriptionIn mathematics, and more specifically in g">
-<meta property="og:updated_time" content="2015-12-21T08:32:36.575Z">
+<meta property="og:updated_time" content="2015-12-21T08:52:05.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="HDU-5534-Partial Tree【2015长春赛区】【完全背包】标签（空格分隔）： 完全背包
@@ -134,32 +134,32 @@ Problem DescriptionIn mathematics, and more specifically in g">
     <ul id="menu" class="menu ">
       
         
-        <li class="menu-item menu-item-home">
+        <li class="menu-item menu-item-首页">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
             
-            首頁
+            menu.首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-关于">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            menu.关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
             
-            歸檔
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            標籤
+            menu.归档
           </a>
         </li>
       
@@ -210,7 +210,7 @@ Problem DescriptionIn mathematics, and more specifically in g">
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-12-21T16:36:39+08:00" content="2015-12-21">
+            <time itemprop="dateCreated" datetime="2015-12-21T16:52:05+08:00" content="2015-12-21">
               2015-12-21
             </time>
           </span>
@@ -244,8 +244,7 @@ Problem DescriptionIn mathematics, and more specifically in g">
 <p><strong>Output</strong><br>For each test case, please output the maximum coolness of the completed tree in one line.</p>
 <p><strong>Sample Input</strong><br>2<br>3<br>2 1<br>4<br>5 1 4</p>
 <p><strong>Sample Output</strong><br>5<br>19</p>
-<p>题目链接：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5534" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5534</a></p>
-<p>题目大意：让你构造一个有n(2≤n≤2015)个节点的树。然后定义这棵树的coolness为∑f(d)，其中d是每个节点的度数，函数f在输入中给出。</p>
+<p>题目链接：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5534" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5534</a><br>&lt;–!more–&gt;<br>题目大意：让你构造一个有n(2≤n≤2015)个节点的树。然后定义这棵树的coolness为∑f(d)，其中d是每个节点的度数，函数f在输入中给出。</p>
 <p>题目思路：一颗含有n个节点的树，有n−1条边，度数之和为2n−2。所以我们可以转化成一个完全背包问题：</p>
 <pre><code>一开始假设大家的度数都为1，然后慢慢地增大，让大家的度数和增大到2n−2。
 dp[i]表示i个度的最优值
@@ -336,7 +335,7 @@ dp[i]表示i个度的最优值
         <p class="site-description motion-element" itemprop="description"></p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/">
               <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">文章</span>
             </a>
@@ -350,10 +349,10 @@ dp[i]表示i个度的最优值
           </div>
 
           <div class="site-state-item site-state-tags">
-            <a href="/tags">
+            
               <span class="site-state-item-count">0</span>
               <span class="site-state-item-name">標籤</span>
-              </a>
+              
           </div>
 
         </nav>
@@ -404,7 +403,7 @@ dp[i]表示i个度的最优值
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
